@@ -1,0 +1,51 @@
+import java.util.*;
+
+public class BubbleSort {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        
+        int size;
+        int array[];
+
+        //User input of the size of the array
+         System.out.print("Number of elements of your array: ");
+         size = input.nextInt();
+         array = new int[size]; // Declare the array with the correct size
+
+         // Input values for your array
+        for (int i = 0; i < size; i++){
+            System.out.print("Enter the element " + (i+1) + ": ");
+             array[i] = input.nextInt();
+        }
+        
+        // Output the values of your array
+        System.out.print("Array elements: ");
+            for (int i = 0; i < size; i++){
+            System.out.print(array[i] + " ");
+        }
+        
+        // Output the sorted array
+        bubbleSort(array); //calls the bubblesort function
+        System.out.println();
+        System.out.print("Sorted Array: ");
+        for (int num : array) {
+            System.out.print(num + " ");
+        }
+    }
+
+    public static void bubbleSort(int[] array) {
+        int size = array.length;
+
+        for (int i = 0; i < size - 1; i++) {
+            for (int j = 0; j < size - i - 1; j++) {
+                if (array[j] > array[j + 1]) {
+                    // Swap array[j] and array[j+1]
+                    int temp = array[j];
+                    array[j] = array[j + 1];
+                    array[j + 1] = temp;
+                }
+            }
+
+        }
+    }
+}
