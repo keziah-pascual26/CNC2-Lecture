@@ -1,0 +1,48 @@
+import java.util.*;
+
+public class InsertionSort {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        
+        int size;
+        int array[];
+
+        //User input of the size of the array
+         System.out.print("Number of elements of your array: ");
+         size = input.nextInt();
+         array = new int[size]; // Declare the array with the correct size
+
+         // Input values for your array
+        for (int i = 0; i < size; i++){
+            System.out.print("Enter the element " + (i+1) + ": ");
+             array[i] = input.nextInt();
+        }
+        
+        // Output the values of your array
+        System.out.print("Array elements: ");
+            for (int i = 0; i < size; i++){
+            System.out.print(array[i] + " ");
+        }
+        
+        // Output the sorted array
+        insertionSort(array); //calls the bubblesort function
+        System.out.println();
+        System.out.print("Sorted Array: ");
+        for (int num : array) {
+            System.out.print(num + " ");
+        }
+    }
+
+    public static void insertionSort(int[] array) {
+        int size = array.length;
+        for (int i = 1; i < size; i++) {
+            int key = array[i];
+            int j = i - 1;
+            while (j >= 0 && array[j] > key) {
+                array[j + 1] = array[j];
+                j--;
+            }
+            array[j + 1] = key;
+        }
+    }
+}
