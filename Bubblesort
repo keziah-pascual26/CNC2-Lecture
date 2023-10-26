@@ -26,12 +26,6 @@ public class BubbleSort {
         
         // Output the sorted array
         bubbleSort(array); //calls the bubblesort function
-        /*System.out.println();
-        System.out.print("Sorted Array: ");
-        for (int num : array) {
-            System.out.print(num + " ");
-        }
-        System.out.print(count); */
     }
 
     public static void bubbleSort(int[] array) {
