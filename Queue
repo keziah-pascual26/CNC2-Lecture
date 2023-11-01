@@ -1,0 +1,74 @@
+import java.util.Scanner;
+
+public class Queue {
+    private int front, rear, capacity;
+    private int qarray[];
+
+    // Constructor to initialize the queue
+    public Queue(int size) {
+        front = 0;
+        rear = -1;
+        capacity = size;
+        qarray = new int[capacity];
+    }
+
+    // Enqueue operation
+    void insert(int data) {
+        if (rear == capacity - 1) {
+            System.out.println("The queue is full.");
+        } else {
+            qarray[++rear] = data;
+        }
+    }
+
+    // Dequeue operation
+    void remove() {
+        if (front > rear) {
+            System.out.println("The queue is empty.");
+        } else {
+            qarray[front] = 0; // Set the value at the front to 0
+            front++; // Move the front to the next element
+        }
+    }
+
+    // Display the queue
+	void qDisplay() {
+    if (front > rear) {
+        System.out.println("The queue is empty.");
+    } else {
+        System.out.print("Front: " + qarray[front] + "\nRear: " + qarray[rear] + "\n");
+        for (int i = front; i <= rear; i++) {
+            System.out.print("[" + qarray[i] + "] ");
+        }
+        System.out.println();
+    }
+}
+
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the size of the queue: ");
+        int size = scanner.nextInt();
+        Queue qlist = new Queue(size);
+
+        System.out.println("Enter elements to enqueue (0 to stop):");
+        int data;
+        while (true) {
+            data = scanner.nextInt();
+            if (data == 0) {
+                break;
+            }
+            qlist.insert(data);
+            System.out.println("Enqueued: " + data);
+        }
+
+        System.out.println("Queue Elements after enqueue:");
+        qlist.qDisplay();
+
+        qlist.remove();
+        System.out.println("Dequeued");
+        System.out.println("Queue Elements after dequeue:");
+        qlist.qDisplay();
+    }
+}
