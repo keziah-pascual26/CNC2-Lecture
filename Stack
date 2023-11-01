@@ -1,0 +1,40 @@
+import java.util.Stack;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Stack<String> sarray = new Stack<>();
+        Scanner scanner = new Scanner(System.in);
+
+        boolean check = sarray.empty();
+        System.out.println("Status of the stack is " + check); //if empty, true. if not empty, false.
+
+        System.out.println("Enter elements to push onto the stack (enter 'exit' to stop):");
+        String input;
+        while (true) {
+            input = scanner.nextLine();
+            if (input.equalsIgnoreCase("exit")) {
+                break;
+            }
+            sarray.push(input); // to insert an element in the stack
+        }
+
+        System.out.println("Elements of the Stack: " + sarray);
+
+        check = sarray.empty();
+        System.out.println("Status of the Stack is " + check); //if empty, true. if not empty, false.
+
+        System.out.println("Do you want to pop an element from the stack? (yes/no):");
+        String choice = scanner.nextLine();
+        
+        if (choice.equalsIgnoreCase("yes")) {
+            if (!sarray.empty()) {
+                String poppedElement = sarray.pop(); //to remove an element in the stack
+                System.out.println("Popped element: " + poppedElement);
+                System.out.println("Elements of the Stack after pop: " + sarray);
+            } else {
+                System.out.println("The stack is empty. Cannot pop.");
+            }
+        }
+    }
+}
